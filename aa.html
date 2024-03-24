@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planificador Mensual</title>
+<style>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .container { width: 80%; margin: auto; }
+  h1 { text-align: center; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+  th { background-color: #f2f2f2; }
+  td { background-color: #fff; }
+  .weekdays { background-color: #4CAF50; color: white; }
+  .editable { background-color: #e7e7e7; cursor: pointer; }
+  .month-selector { margin-bottom: 20px; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Planificador Mensual</h1>
+  <div class="month-selector">
+    <button onclick="changeMonth(-1)">❮</button>
+    <span id="month-name">Enero</span>
+    <button onclick="changeMonth(1)">❯</button>
+  </div>
+  <table id="month-table">
+    <!-- El contenido del calendario se generará con JavaScript -->
+  </table>
+</div>
+<script>function generateCalendar() {
+  var table = document.getElementById('month-table');
+  table.innerHTML = ''; // Limpiar el calendario actual
+
+  // Añadir los nombres de los días de la semana
+  var weekDays = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+  var row = table.insertRow();
+  for (var i = 0; i < weekDays.length; i++) {
+    var cell = row.insertCell();
+    cell.innerHTML = weekDays[i];
+    cell.style.backgroundColor = '#4CAF50';
+    cell.style.color = 'white';
+  }
+
+  // Datos para el mes de marzo
+  var totalDays = 31; // Total de días en marzo
+  var startDay = 1; // Marzo comienza en lunes
+
+  // Añadir los días del mes al calendario
+  var day = 1;
+  for (var i = 0; i < 5; i++) { // 5 semanas por mes
+    var row = table.insertRow();
+    for (var j = 0; j < 7; j++) { // 7 días por semana
+      var cell = row.insertCell();
+      if (day <= totalDays && (i > 0 || j >= startDay - 1)) {
+        cell.innerHTML = day;
+        cell.className = 'editable';
+        cell.setAttribute('contenteditable', 'true');
+        day++;
+      }
+    }
+  }
+}
+
+
+// Inicializar el calendario en marzo
+currentMonth = 2; // Marzo es el tercer mes del año, índice 2
+generateCalendar();
+
+
+  function generateCalendar() {
+    var table = document.getElementById('month-table');
+    table.innerHTML = ''; // Limpiar el calendario actual
+    // Generar el calendario para el mes actual
+    // ...
+  }
+
+  // Inicializar el calendario
+ function generateCalendar() {
+  var table = document.getElementById('month-table');
+  table.innerHTML = ''; // Limpiar el calendario actual
+
+  // Añadir los nombres de los días de la semana
+  var weekDays = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+  var row = table.insertRow();
+  for (var i = 0; i < weekDays.length; i++) {
+    var cell = row.insertCell();
+    cell.innerHTML = weekDays[i];
+    cell.style.backgroundColor = '#4CAF50';
+    cell.style.color = 'white';
+  }
+
+  // Datos para el mes de Abril
+  var totalDays = 31; // Total de días en Abril
+  var startDay = 1; // Abril comienza en Lunes
+
+  // Añadir los días del mes al calendario
+  var day = 1;
+  for (var i = 0; i < 5; i++) { // 5 semanas por mes
+    var row = table.insertRow();
+    for (var j = 0; j < 7; j++) { // 7 días por semana
+      var cell = row.insertCell();
+      if (day <= totalDays && (i > 0 || j >= startDay - 1)) {
+        cell.innerHTML = day;
+        cell.className = 'editable';
+        cell.setAttribute('contenteditable', 'true');
+        day++;
+      }
+    }
+  }
+}
+
+// Inicializar el calendario en Abril
+currentMonth = 2; // Marzo es el tercer mes del año, índice 2
+generateCalendar();
+
+
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('editable')) {
+      e.target.focus();
+    }
+  });
+
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tabla de Recordatorios</title>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+</head>
+<body>
+
+<h2>Mi Tabla de Recordatorios de Abril</h2>
+
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>Recordatorio</th>
+    <th>Completado</th>
+  </tr>
+  <!-- Comienza a agregar filas para cada día del mes -->
+  <tr>
+    <td contenteditable="true">01/03/2024</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true">No</td>
+  </tr>
+  <!-- Repite este bloque para cada día -->
+  <tr>
+    <td contenteditable="true">02/03/2024</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true">No</td>
+  </tr>
+  <!-- ... -->
+  <!-- Asegúrate de cambiar la fecha y los recordatorios según tus necesidades -->
+  <tr>
+    <td contenteditable="true">31/03/2024</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true">No</td>
+  </tr>
+  <!-- Fin de las filas para cada día del mes -->
+</table>
+
+</body>
+</html>
+
